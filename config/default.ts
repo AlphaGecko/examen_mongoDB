@@ -1,5 +1,7 @@
+import bcrypt from 'bcrypt';
+
 export default {
     port: 3000,
     dbUri: "mongodb://localhost:27017/sandbox", 
-    Uri : "localhost:1337"
+    salt : bcrypt.genSalt(10)
 }

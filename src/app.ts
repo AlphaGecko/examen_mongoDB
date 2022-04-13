@@ -9,7 +9,6 @@ const app = express();
 
 openRoutes(app);
 restrictedRoutes(app);
-
 connect(); 
 
 app.listen(config.get('port'), function() {
