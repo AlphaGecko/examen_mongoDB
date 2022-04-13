@@ -1,9 +1,19 @@
 import express from 'express'; 
-import config from 'config';
 import connect from './helpers/dbMongo/connect';
+import openRoutes from './routes/open/openRoutes';
+import restrictedRoutes from './routes/restricted/restrictedRoutes';
+import config from "config";
+import log from './helpers/logger';
 
 const app = express();
 
-app.listen(config.get('port'));
+openRoutes(app);
+restrictedRoutes(app);
 
-connect();
+connect(); 
+
+app.listen(config.get('port'), function() {
+    log.info("ok");
+});
+
+
